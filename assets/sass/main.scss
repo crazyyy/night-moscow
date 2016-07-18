@@ -77,23 +77,26 @@ picture {
 
   @extend .clearfix;
 }
-.inner {
-  position: relative;
-
-  width: $width;
-  margin: 0 auto;
-
-  @extend .clearfix;
-}
 
 header {
-  background-color: $light-gray;
-  .logo {
-    display: block;
+  height: 646px;
 
-    width: $width / 10;
-    img {
-      max-width: 100%;
+  background-image: url(../img/header-bg.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  .container-logo {
+    padding-top: 28px;
+
+    color: #fff;
+    .logo-title {
+      font-size: 36px;
+
+      text-align: center;
+      span {
+        font-size: 18px;
+
+        display: block;
+      }
     }
   }
 }
@@ -104,9 +107,6 @@ nav {
     li {
       display: inline-block;
     }
-  }
-  .headnav {
-    width: $width / 5;
   }
 }
 
@@ -133,6 +133,6 @@ footer {
 
 
 @import 'fonts/font_fontawesome';
-@import 'fonts/font_roboto';
+@import 'fonts/font_avenirnextw1g';
 @import 'base64';
 @import 'import/print';
