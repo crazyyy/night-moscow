@@ -77,7 +77,39 @@ picture {
 
   @extend .clearfix;
 }
+input {
+  border: 1px solid #dedede;
+}
+.btn {
+  font-weight: normal;
 
+  padding: 7px 20px;
+
+  text-align: center;
+
+  color: #fff;
+  &.btn-green {
+    background-color: $green;
+    &:hover {
+      background-color: $green-dark;
+    }
+  }
+  &.btn-transprent {
+    color: #fff;
+    border: 1px solid #fff;
+    background-color: transparent;
+    &:hover {
+      border-color: $green-dark;
+      background-color: $green;
+    }
+  }
+  &:hover {
+    text-decoration: none;
+    &.btn-green {
+      background-color: $green-dark;
+    }
+  }
+}
 header {
   height: 646px;
 
@@ -89,14 +121,107 @@ header {
 
     color: #fff;
     .logo-title {
+      font-family: $second-font-family;
       font-size: 36px;
+      font-weight: 300;
 
       text-align: center;
       span {
         font-size: 18px;
+        font-weight: normal;
 
         display: block;
       }
+    }
+  }
+  .container-contacts {
+    padding-top: 40px;
+
+    text-align: right;
+    .phone {
+      font-size: 16px;
+
+      display: block;
+
+      margin-bottom: 20px;
+
+      text-decoration: none;
+
+      color: #fff;
+      &:hover {
+        color: $green;
+      }
+    }
+  }
+  .container-title {
+    padding-top: 40px;
+
+    text-align: center;
+    .header-title {
+      font-size: 72px;
+      font-weight: bold;
+
+      margin-bottom: 5px;
+
+      color: #fff;
+    }
+    .header-subtitle {
+      font-size: 36px;
+      font-weight: bold;
+
+      margin-bottom: 50px;
+
+      color: #fff;
+    }
+    .btn-titleorder {
+      margin-bottom: 82px;
+    }
+  }
+  .header-choose {
+    height: 200px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+
+    color: #fff;
+    background-color: rgba(0,0,0,.5);
+    a {
+      color: #fff;
+    }
+  }
+  .header-choose-type {
+    .headline {
+      font-size: 18px;
+      font-weight: 600;
+
+      margin-bottom: 34px;
+    }
+    ul {
+      @extend .clearfix;
+      li {
+        float: left;
+
+        width: 50%;
+        margin: 0 0 18px;
+        a {
+          text-decoration: underline;
+        }
+        &:hover {
+          a {
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+  .header-choose-foregin {
+    padding-top: 60px;
+    .btn-foregin {
+      line-height: 1.7;
+
+      width: 190px;
+      margin: 0 auto;
+
+      white-space: normal;
     }
   }
 }
@@ -107,6 +232,37 @@ nav {
     li {
       display: inline-block;
     }
+  }
+}
+.container-mailsubscribe {
+  height: 130px;
+  padding-top: 25px;
+
+  background-image: url(../img/container-mailsubscribe-bg.jpg);
+  h6 {
+    font-size: 24px;
+    font-weight: 600;
+
+    margin-bottom: 20px;
+
+    color: #000;
+  }
+  form {
+    @extend .clearfix;
+  }
+  input {
+    display: inline-block;
+    float: left;
+
+    width: 270px;
+    height: 34px;
+    margin: 0 30px 0 0;
+    padding: 5px 10px;
+  }
+  .btn {
+    float: left;
+
+    height: 34px;
   }
 }
 
@@ -125,14 +281,78 @@ footer {
   height: $footer;
   margin: $footer_margin auto 0;
 
-  background-color: $light-gray;
-  .inner {
-    height: $footer;
+  color: #000;
+  border-top: 3px solid $gray;
+  background-image: url(../img/footer-bg.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  a {
+    text-decoration: none;
+
+    color: #000;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  .footer-title {
+    padding-top: 100px;
+
+    text-align: center;
+    h6 {
+      font-size: 36px;
+      font-weight: 300;
+      span {
+        font-size: 18px;
+        font-weight: normal;
+
+        display: block;
+      }
+    }
+  }
+  .footer-middle {
+    padding-top: 80px;
+    .footer-nav,
+    .footer-social {
+      li {
+        display: inline-block;
+      }
+    }
+    .footer-nav {
+      margin-bottom: 50px;
+      li {
+        margin: 0 25px 0 0;
+      }
+    }
+    .footer-social {
+      li {
+        margin: 0 20px 0 0;
+        i {
+          font-size: 30px;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+  .footer-contact {
+    padding-top: 80px;
+    h6 {
+      font-weight: bold;
+    }
+    a {
+      display: block;
+      &.footer-phone {
+        margin-bottom: 10px;
+      }
+      &.footer-mail {
+        margin-bottom: 30px;
+      }
+    }
   }
 }
 
 
 @import 'fonts/font_fontawesome';
+@import 'fonts/font_opensans';
 @import 'fonts/font_avenirnextw1g';
 @import 'base64';
 @import 'import/print';
