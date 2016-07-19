@@ -4,7 +4,7 @@
     <?php if (have_posts()): while (have_posts()) : the_post(); ?>
       <article id="post-<?php the_ID(); ?>" <?php post_class('article-post row'); ?>>
 
-        <h1 class="page-title inner-title"><?php the_title(); ?></h1>
+        <h1 class="col-md-12 page-title inner-title"><?php the_title(); ?></h1>
         <div class="col-md-6 contact-form clearfix">
           <ul class="contact-phones">
             <li><a href="tel:+74955555555">+7 (495) 555-55-55</a></li>
