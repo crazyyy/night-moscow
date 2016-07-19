@@ -29,5 +29,12 @@ $(".payment-steps").each(function() {
     maxheight = $(this).height();
   }
 });
-
 $(".payment-steps").height(maxheight);
+
+var maxheight = 0;
+$(".container-partners").each(function() {
+  if ($(this).height() > maxheight) {
+    maxheight = $(this).height();
+  }
+});
+$(".container-partners").height(maxheight);

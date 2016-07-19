@@ -163,21 +163,25 @@ header {
     }
   }
   .container-headnav {
-
     .headnav {
       position: relative;
-      width: 100%;
-          padding-top: 30px;
+
       display: block;
+
+      width: 100%;
+      padding-top: 30px;
       li {
-text-align: center;
-        width: 20%;
         display: inline-block;
+
+        width: 20%;
+
+        text-align: center;
         a {
           color: #000;
-          &:hover{
-            color: $green;
+          &:hover {
             text-decoration: none;
+
+            color: $green;
           }
         }
       }
@@ -478,6 +482,20 @@ article {
   }
   .payment-content {
     padding-top: 20px;
+  }
+  .container-partners {
+    .partners-logo {
+      position: relative;
+
+      display: block;
+
+      height: 130px;
+margin-bottom: 15px;
+      border: 1px solid $gray;
+      img {
+        @extend .align-center;
+      }
+    }
   }
 }
 .looper {
