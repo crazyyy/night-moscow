@@ -21,28 +21,70 @@
   <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-<!-- wrapper -->
 <div class="wrapper">
   <header role="banner">
-    <div class="inner">
 
-      <div class="logo">
-        <?php if ( is_front_page() && is_home() ){ } else { ?>
-          <a href="<?php echo home_url(); ?>">
-            <?php  } ?>
-            <img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="<?php wp_title( '' ); ?>" title="<?php wp_title( '' ); ?>" class="logo-img">
-            <?php if ( is_front_page() && is_home() ){
-            } else { ?>
-          </a>
-        <?php } ?>
-      </div><!-- /logo -->
+    <div class="container">
+      <div class="row">
 
-      <nav class="nav" role="navigation">
-        <?php wpeHeadNav(); ?>
-      </nav><!-- /nav -->
+        <div class="col-md-2 container-logo">
+          <div class="logo">
+            <?php if ( is_front_page() && is_home() ){ } else { ?>
+              <a href="<?php echo home_url(); ?>">
+                <?php  } ?>
+                <h6 class="logo-title">Москва<span>гид для Вас</span></h6>
+                <?php if ( is_front_page() && is_home() ){
+                } else { ?>
+              </a>
+            <?php } ?>
+          </div><!-- /logo -->
+        </div><!-- /.col-md-2 -->
 
-    </div><!-- /.inner -->
+        <div class="col-md-2 col-md-offset-8 container-contacts">
+          <a href="tel:+74955555555" class="phone">+7 (495) 555-55-55</a>
+          <a href="#" class="btn btn-green btn-recall">Заказать звонок</a>
+        </div><!-- /.col-md-2 col-md-offset-8 container-contacts -->
+
+        <div class="col-md-12 container-title">
+          <h2 class="header-title">Ночная Москва</h2>
+          <h3 class="header-subtitle">18 и 25 июня (сб) в 20:00</h3>
+          <a href="#" class="btn btn-green btn-titleorder">Записаться на экскурсию</a>
+        </div><!-- /.col-md-12 container-title -->
+
+        <div class="col-md-3 header-choose header-choose-calendar">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum expedita tempore minus tenetur fugit excepturi modi placeat in odit corrupti totam nemo dolore, quisquam voluptates quae perspiciatis, asperiores, nisi sed!
+        </div><!-- /.col-md-3 header-choose header-choose-calendar -->
+
+        <div class="col-md-6 header-choose header-choose-type">
+          <h6 class="headline">Вид экскурсии</h6>
+          <?php wpeSideNav(); ?>
+          <!-- <?php wpeHeadNav(); ?> -->
+
+        </div><!-- /.col-md-6 header-choose header-choose-type -->
+
+        <div class="col-md-3 header-choose header-choose-foregin">
+          <a href="" class="btn btn-transprent btn-foregin">Экскурсии для иностранцев</a>
+        </div><!-- /.col-md-3 header-choose header-choose-foregin -->
+
+      </div><!-- /.row -->
+    </div><!-- /.container -->
   </header><!-- /header -->
 
   <section role="main">
-    <div class="inner">
+
+    <div class="container-mailsubscribe">
+      <div class="container ">
+        <div class="row">
+
+          <div class="col-md-12">
+            <h6>Получить расписание на электронную почту!</h6>
+            <form action="">
+              <input type="text" name="name" placeholder="Ваше имя...">
+              <input type="text" name="email" placeholder="Ваш e-mail...">
+              <button class="btn btn-green btn-subscribe">Подписаться</button>
+            </form>
+          </div><!-- /.col-md-12 -->
+
+        </div><!-- /.row -->
+      </div><!-- /.container -->
+    </div><!-- /.container-mailsubscribe -->

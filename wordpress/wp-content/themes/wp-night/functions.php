@@ -130,7 +130,7 @@ function wpeFootNav() {
     'after'           => '',
     'link_before'     => '',
     'link_after'      => '',
-    'items_wrap'      => '<ul class="footernav">%3$s</ul>',
+    'items_wrap'      => '<ul class="footer-nav">%3$s</ul>',
     'depth'           => 0,
     'walker'          => ''
     )
@@ -153,7 +153,7 @@ function wpeSideNav() {
     'after'           => '',
     'link_before'     => '',
     'link_after'      => '',
-    'items_wrap'      => '<ul class="sidebarnav">%3$s</ul>',
+    'items_wrap'      => '<ul class="header-chooser">%3$s</ul>',
     'depth'           => 0,
     'walker'          => ''
     )
@@ -654,10 +654,75 @@ function disable_emojicons_tinymce( $plugins ) {
 }
 
 
+// Add Autoren Post Type
+add_action( 'init', 'post_type_excursion' );
+function post_type_excursion() {
 
+  $labels = array(
+    'name' => 'Экскурсии',
+    'singular_name' => 'Экскурсии',
+    'add_new' => 'Добавить',
+    'add_new_item' => 'Добавить',
+    'edit' => 'Редактировать',
+    'edit_item' => 'Редактировать',
+    'new-item' => 'Добавить',
+    'view' => 'Посмотреть',
+    'view_item' => 'Посмотреть',
+    'search_items' => 'Искать',
+    'not_found' => 'Not Found',
+    'not_found_in_trash' => 'Not Found',
+    'parent' => 'Родитель'
+  );
 
+  $args = array(
+    'description' => 'Экскурсии',
+    'show_ui' => true,
+    'menu_position' => 3,
+    'exclude_from_search' => false,
+    'labels' => $labels,
+    'public' => true,
+    'publicly_queryable' => true,
+    'capability_type' => 'post',
+    'hierarchical' => false,
+    'supports' => array('title','editor','thumbnail'),
+    'has_archive' => true,
+    'rewrite' => array( 'slug' => 'excursion' ),
+    // https://developer.wordpress.org/resource/dashicons/
+    'menu_icon' => 'dashicons-palmtree',
+    'show_in_rest' => true
+  );
 
+  register_post_type( 'excursion' , $args );
+}
 
+// hook into the init action and call create_book_taxonomies when it fires
+add_action( 'init', 'taxonomies_category', 0 );
+function taxonomies_category() {
+  // Add new taxonomy, make it hierarchical (like categories)
+  $labels = array(
+    'name'              => 'Категории',
+    'singular_name'     => 'Категория',
+    'search_items'      => 'Искать',
+    'all_items'         => 'Все',
+    'parent_item'       => 'Родитель',
+    'parent_item_colon' => 'Родитель',
+    'edit_item'         => 'Редактировать',
+    'update_item'       => 'Обновить',
+    'add_new_item'      => 'Добавить',
+    'new_item_name'     => 'Добавить',
+    'menu_name'         => 'Категории',
+  );
 
+  $args = array(
+    'hierarchical'      => true,
+    'labels'            => $labels,
+    'show_ui'           => true,
+    'show_admin_column' => true,
+    'query_var'         => true,
+    'rewrite'           => array( 'slug' => 'types' ),
+  );
+
+  register_taxonomy( 'categories', array( 'excursion' ), $args );
+}
 
 ?>
