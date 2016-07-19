@@ -588,7 +588,225 @@ article {
     float: left;
   }
 }
+.article-excursion {
+  .excursion-time,
+  .excursion-guide {
+    font-size: 14px;
 
+    position: relative;
+
+    margin-bottom: 45px;
+    padding-left: 40px;
+    &:before {
+      font-size: 30px;
+
+      position: absolute;
+      top: 50%;
+      left: 0;
+
+      width: 26px;
+      height: 26px;
+      margin-top: -13px;
+
+      text-align: center;
+
+      color: $gold;
+
+      @extend .dblock;
+      @extend .fa;
+    }
+    span {
+      display: block;
+
+      padding-top: 5px;
+    }
+  }
+  .excursion-time {
+    &:before {
+      content: '\f017';
+    }
+  }
+  .excursion-guide {
+    &:before {
+      content: '\f183';
+    }
+  }
+  .excursion-gallery {
+    .gallery-main {
+      display: block;
+      overflow: hidden;
+
+      height: 300px;
+      margin-bottom: 15px;
+      img {
+        width: 100%;
+        min-height: 100%;
+      }
+    }
+  }
+  .gallery-choose {
+    display: block;
+
+    margin-bottom: 45px;
+    padding: 0;
+
+    @extend .justify-child;
+    li {
+      display: inline-block;
+      overflow: hidden;
+
+      width: 70px;
+      height: 70px;
+      margin: 0;
+
+      cursor: pointer;
+
+      border: 1px solid transparent;
+      img {
+        width: 100%;
+        min-height: 100%;
+      }
+      &:hover {
+        border-color: $gold;
+      }
+    }
+  }
+  .excursion-content {
+    padding-top: 40px;
+    h4 {
+      font-size: 18px;
+      font-weight: bold;
+
+      margin-bottom: 25px;
+    }
+    ul {
+      margin: 0 0 20px;
+      padding: 0 0 0 5px;
+
+      list-style-position: inside;
+      list-style-type: disc;
+      li {
+        line-height: 1.4;
+
+        margin-bottom: 5px;
+        &:before {
+          display: none;
+        }
+      }
+    }
+  }
+  .subtitle {
+    font-size: 18px;
+    font-weight: bold;
+
+    margin-bottom: 10px;
+  }
+  .excursion-price {
+    .price-title {
+      font-size: 18px;
+      font-weight: bold;
+
+      margin-bottom: 20px;
+    }
+    .price-list {
+      display: block;
+
+      margin-bottom: 20px;
+      padding: 10px 100px;
+
+      background-color: #f7f7f3;
+      li {
+        padding: 15px 3px;
+
+        color: #000;
+        border-bottom: 1px solid #cdcdcd;
+
+        @extend .clearfix;
+        &:hover {
+          background-color: lighten(#f7f7f3, 5%);
+        }
+        &:before {
+          display: none;
+
+          text-align: left;
+        }
+        &:last-child {
+          border: 0;
+        }
+        span {
+          font-weight: 600;
+
+          float: right;
+
+          color: #000;
+        }
+      }
+    }
+    table {
+      th,
+      td {
+        border: 0;
+        &:nth-child(1),
+        &:nth-child(2) {
+          width: 27%;
+        }
+        &:nth-child(3) {
+          width: 46%;
+        }
+      }
+      th {
+        font-size: 14px;
+        font-weight: 600;
+
+        padding-left: 15px;
+
+        text-align: left;
+      }
+      td {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        padding-left: 5px;
+        button {
+          font-weight: 600;
+
+          width: 100%;
+
+          color: #000;
+          border: 1px solid $green;
+          background-color: transparent;
+          &:hover {
+            color: #fff;
+            background-color: $green-dark;
+          }
+        }
+      }
+      tr {
+        &:hover {
+          td {
+            background-color: lighten($green, 40%);
+          }
+        }
+      }
+    }
+  }
+  .excursion-level-one {
+    margin-bottom: 30px;
+  }
+  .excursion-map,
+   .excursion-video {
+    height: 350px;
+    padding-left: 15px;
+    padding-right: 15px;
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      display: block;
+          background-color: #f6f6f6;
+    }
+  }
+}
 footer {
   height: $footer;
   margin: $footer_margin auto 0;

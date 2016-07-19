@@ -38,11 +38,43 @@ $(".container-partners").each(function() {
   }
 });
 $(".container-partners").height(maxheight);
-var maxheight = 0;
 
+var maxheight = 0;
 $(".looper").each(function() {
   if ($(this).height() > maxheight) {
     maxheight = $(this).height();
   }
 });
 $(".looper").height(maxheight);
+
+var maxheight = 0;
+$(".excursion-level-zero").each(function() {
+  if ($(this).height() > maxheight) {
+    maxheight = $(this).height();
+  }
+});
+$(".excursion-level-zero").height(maxheight);
+
+var maxheight = 0;
+$(".excursion-level-one").each(function() {
+  if ($(this).height() > maxheight) {
+    maxheight = $(this).height();
+  }
+});
+$(".excursion-level-one").height(maxheight);
+
+var maxheight = 0;
+$(".excursion-level-two").each(function() {
+  if ($(this).height() > maxheight) {
+    maxheight = $(this).height();
+  }
+});
+$(".excursion-level-two").height(maxheight);
+
+/** examples block - gallery change photos */
+$(document).ready(function() {
+  $('.gallery-choose li').on('click', function() {
+    var image = $(this).attr('dataimage');
+    $('.gallery-main img').attr('src', image);
+  })
+});

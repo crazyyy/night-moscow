@@ -36,6 +36,7 @@ function wpeStyles()  {
   wp_enqueue_style('wpeasy-style'); // Enqueue it!
 }
 
+
 add_action('init', 'wpeHeaderScripts'); // Add Scripts to wp_head
 function wpeHeaderScripts() {
   if (!is_admin()) {
@@ -652,6 +653,11 @@ function disable_emojicons_tinymce( $plugins ) {
     return array();
   }
 }
+
+
+add_filter('acf/settings/google_api_key', function () {
+    return 'AIzaSyDacqLU9_YxrrJP2PTOWLhqo4ti2tYqiR8';
+});
 
 
 // Add Autoren Post Type
