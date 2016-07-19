@@ -71,6 +71,22 @@ $(".excursion-level-two").each(function() {
 });
 $(".excursion-level-two").height(maxheight);
 
+var maxheight = 0;
+$(".excursion-cat-zero").each(function() {
+  if ($(this).height() > maxheight) {
+    maxheight = $(this).height();
+  }
+});
+$(".excursion-cat-zero").height(maxheight);
+
+var maxheight = 0;
+$(".popular-posts").each(function() {
+  if ($(this).height() > maxheight) {
+    maxheight = $(this).height();
+  }
+});
+$(".popular-posts").height(maxheight);
+
 /** examples block - gallery change photos */
 $(document).ready(function() {
   $('.gallery-choose li').on('click', function() {

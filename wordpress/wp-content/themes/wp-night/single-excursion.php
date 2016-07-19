@@ -5,8 +5,6 @@
         <?php if (function_exists('easy_breadcrumbs')) easy_breadcrumbs(); ?>
 
         <?php $terms = get_the_terms( $post->ID, 'categories' ); $term = array_pop($terms); $termID= $term->term_id;
-
-
           if ($termID == 76 ) {
             $exname = 'пешеходная';
           } else if ($termID == 80 ) {
@@ -22,7 +20,7 @@
           }
         ?>
 
-        <h1 class="col-md-12 page-title inner-title"><?php the_title(); ?>  <span class="type type-">(<?php echo $termID; echo $exname; ?>)</span></h1>
+        <h1 class="col-md-12 page-title inner-title sinle-exc-title"><?php the_title(); ?>  <span class="type"><?php $image = get_field('image', $term ); ?><img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />(<?php echo $exname; ?>)</span></h1>
 
         <div class="col-md-3 excursion-time excursion-level-zero">
           Продолжительность:
@@ -83,8 +81,8 @@
           <h6 class="price-title">Ближайшие даты экскурсий:</h6>
           <table>
             <tr>
-              <th>Дата</th>
-              <th>Время</th>
+              <th><span>Дата</span></th>
+              <th><span>Время</span></th>
               <th></th>
             </tr>
             <?php if( have_rows('timeadndate') ): while ( have_rows('timeadndate') ) : the_row(); ?>
@@ -106,6 +104,10 @@
         <div class="col-md-6 excursion-video excursion-level-two">
           <iframe width="350" src="https://www.youtube.com/embed/<?php the_field('video'); ?>?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
         </div><!-- /.col-md-6 excursion-video excursion-level-two -->
+
+        <?php setPostViews(get_the_ID());?>
+
+        <?php get_template_part('popular'); ?>
 
 
       </article>
