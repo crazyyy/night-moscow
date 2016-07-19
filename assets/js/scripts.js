@@ -38,3 +38,11 @@ $(".container-partners").each(function() {
   }
 });
 $(".container-partners").height(maxheight);
+var maxheight = 0;
+
+$(".looper").each(function() {
+  if ($(this).height() > maxheight) {
+    maxheight = $(this).height();
+  }
+});
+$(".looper").height(maxheight);

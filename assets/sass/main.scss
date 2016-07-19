@@ -326,6 +326,20 @@ nav {
 section {
   padding: 0 0 $footer;
 }
+.cat-title {
+  font-size: 30px;
+  font-weight: bold;
+
+  width: 100%;
+  margin-bottom: 50px;
+
+  color: #000;
+  a {
+    text-decoration: none;
+
+    color: #000;
+  }
+}
 article {
   @extend .clearfix;
   &.article-post {
@@ -502,6 +516,7 @@ article {
     }
   }
 }
+
 .breadcrumbs {
   font-size: 12px;
   font-weight: normal;
@@ -518,8 +533,61 @@ article {
 }
 .looper {
   @extend .clearfix;
-}
+  .feature-img {
+    display: block;
+    overflow: hidden;
 
+    height: 200px;
+    margin-bottom: 16px;
+    &:hover {
+      opacity: .8;
+    }
+    img {
+      width: 100%;
+      min-height: 100%;
+    }
+  }
+  .looper-title {
+    font-size: 18px;
+    font-weight: bold;
+
+    margin-bottom: 18px;
+
+    color: #000;
+    a {
+      color: #000;
+      &:hover {
+        text-decoration: underline;
+
+        color: #000;
+      }
+    }
+  }
+  .date {
+    font-size: 14px;
+    font-style: italic;
+
+    display: block;
+
+    margin-bottom: 10px;
+  }
+}
+.pagination {
+  font-weight: bold;
+
+  padding-top: 15px;
+  padding-bottom: 15px;
+
+  text-align: center;
+
+  @extend .clearfix;
+  .next {
+    float: right;
+  }
+  .prev {
+    float: left;
+  }
+}
 
 footer {
   height: $footer;
