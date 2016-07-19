@@ -425,7 +425,7 @@ function easy_breadcrumbs() {
   $show_on_home = 0; // 1 - показывать "хлебные крошки" на главной странице, 0 - не показывать
   $show_home_link = 1; // 1 - показывать ссылку "Главная", 0 - не показывать
   $show_title = 1; // 1 - показывать подсказку (title) для ссылок, 0 - не показывать
-  $delimiter = ' &raquo; '; // разделить между "крошками"
+  $delimiter = ' > '; // разделить между "крошками"
   $before = '<span class="current">'; // тег перед текущей "крошкой"
   $after = '</span>'; // тег после текущей "крошки"
   /* === КОНЕЦ ОПЦИЙ === */
@@ -441,11 +441,11 @@ function easy_breadcrumbs() {
 
   if (is_home() || is_front_page()) {
 
-    if ($show_on_home == 1) echo '<div class="breadcrumbs"><a href="' . $home_link . '">' . $text['home'] . '</a></div>';
+    if ($show_on_home == 1) echo '<div class="col-md-12 breadcrumbs"><a href="' . $home_link . '">' . $text['home'] . '</a></div>';
 
   } else {
 
-    echo '<div class="breadcrumbs" xmlns:v="http://rdf.data-vocabulary.org/#">';
+    echo '<div class="col-md-12 breadcrumbs" xmlns:v="http://rdf.data-vocabulary.org/#">';
     if ($show_home_link == 1) {
         echo '<a href="' . $home_link . '" rel="v:url" property="v:title">' . $text['home'] . '</a>';
         if ($frontpage_id == 0 || $parent_id != $frontpage_id) echo $delimiter;

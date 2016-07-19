@@ -338,6 +338,9 @@ article {
       margin: 0 0 20px;
     }
   }
+  &.article-single {
+    padding-top: 20px;
+  }
   .page-title {
     font-size: 30px;
     font-weight: bold;
@@ -490,12 +493,27 @@ article {
       display: block;
 
       height: 130px;
-margin-bottom: 15px;
+      margin-bottom: 15px;
+
       border: 1px solid $gray;
       img {
         @extend .align-center;
       }
     }
+  }
+}
+.breadcrumbs {
+  font-size: 12px;
+  font-weight: normal;
+
+  margin-bottom: 25px;
+  a {
+    text-decoration: none;
+
+    color: #000;
+  }
+  .current {
+    color: $gold;
   }
 }
 .looper {
