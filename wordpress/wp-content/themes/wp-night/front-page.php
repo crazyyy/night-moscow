@@ -1,139 +1,92 @@
 <?php /* Template Name: Home Page */ get_header(); ?>
 
-  <article>
-    <h1 class="ctitle">Пример контента (рыба)</h1>
-    <p>The purpose of this HTML is to help determine what default settings are with Bitters and to make sure that all possible HTML Elements are included in this HTML so as to not miss any possible Elements when designing a site.</p>
+  <div class="container">
 
-    <hr>
+    <div class="row">
 
-    <h1>h1. Heading</h1>
-    <h2>h2. Heading</h2>
-    <h3>h3. Heading</h3>
-    <h4>h4. Heading</h4>
-    <h5>h5. Heading</h5>
-    <h6>h6. Heading</h6>
+      <h2 class="col-md-12 our-exc-titles">Наши экскурсии</h2>
 
-    <hr>
+      <div class="row our-exc-container">
+        <?php $args = array('post_type'    => 'excursion','posts_per_page' => 4,'post_status'  => 'publish'); query_posts($args); if ( have_posts() ) : while ( have_posts()) : the_post(); ?>
 
-    <h1 class="ctitle">Paragraph</h1>
+          <?php $terms = get_the_terms( $post->ID, 'categories' ); $term = array_pop($terms); $catId = $term->term_id; $cat_class = 'col-md-6 looper catid_'.$catId; ?>
+          <div id="post-<?php the_ID(); ?>" <?php post_class( $cat_class); ?>>
 
-    <p>Lorem ipsum dolor sit amet, <a href="#" title="test link">test link</a> adipiscing elit. Nullam dignissim convallis est. Quisque aliquam. Donec faucibus. Nunc iaculis suscipit dui. Nam sit amet sem. Aliquam libero nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl. Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus. Maecenas ornare tortor. Donec sed tellus eget sapien fringilla nonummy. Mauris a ante. Suspendisse quam sem, consequat at, commodo vitae, feugiat in, nunc. Morbi imperdiet augue quis tellus.</p>
+            <a rel="nofollow" class="feature-img" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+              <?php if ( has_post_thumbnail()) :
+                the_post_thumbnail('medium');
+              else: ?>
+                <img src="<?php echo catchFirstImage(); ?>" title="<?php the_title(); ?>" alt="<?php the_title(); ?>" />
+              <?php endif; ?>
+            </a><!-- /post thumbnail -->
 
-    <p>Lorem ipsum dolor sit amet, <em>emphasis</em> consectetuer adipiscing elit. Nullam dignissim convallis est. Quisque aliquam. Donec faucibus. Nunc iaculis suscipit dui. Nam sit amet sem. Aliquam libero nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl. Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus. Maecenas ornare tortor. Donec sed tellus eget sapien fringilla nonummy. Mauris a ante. Suspendisse quam sem, consequat at, commodo vitae, feugiat in, nunc. Morbi imperdiet augue quis tellus.</p>
+            <h2 class="inner-title looper-title">
+              <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
+            </h2><!-- /post title -->
+            <?php wpeExcerpt('wpeExcerpt40'); ?>
+            <ul class="exces-dates">
+              <?php if( have_rows('timeadndate') ): while ( have_rows('timeadndate') ) : the_row(); ?>
+                <li>
+                  <?php $date = get_sub_field('date', false, false); $date = new DateTime($date); echo $date->format('d F Y'); ?>
+                </li>
+              <?php  endwhile; endif; ?>
+            </ul><!-- /.exces-dates -->
+            <ul class="excurse-about">
+              <li class="exc-time">Продолжительность:<span><?php the_field('time'); ?></span></li>
+              <li class="exc-guide">Экскурсовод:<span><?php the_field('guide'); ?></span></li>
+              <li class="exc-type">
+                <?php $catname= $term->name; echo $catname; ?>
+              </li>
+              <li class="exc-order"><button class="btn btn-green btn-order">Записаться на экскурсию</button></li>
+            </ul>
 
-    <hr>
+          </div><!-- /looper -->
+        <?php endwhile; endif; wp_reset_query(); ?>
 
-    <h1 class="ctitle">List Types</h1>
-
-    <h3>Definition List - dl > dt + dd</h3>
-    <dl>
-      <dt>Definition List Title</dt>
-      <dd>This is a definition list division.</dd>
-    </dl>
-
-    <h3>Ordered List - ol</h3>
-    <ol>
-      <li>List Item 1</li>
-      <li>List Item 2</li>
-      <li>List Item 3</li>
-    </ol>
-
-    <h3>Unordered List - ul</h3>
-    <ul>
-      <li>List Item 1</li>
-      <li>List Item 2</li>
-      <li>List Item 3</li>
-    </ul>
-
-    <hr>
-
-    <h1 class="ctitle">Fieldsets and Form Elements</h1>
-
-    <fieldset>
-      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nullam dignissim convallis est. Quisque aliquam. Donec faucibus. Nunc iaculis suscipit dui. Nam sit amet sem. Aliquam libero nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl. Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus.</p>
-
-      <form>
-        <h2>Form Element</h2>
-
-        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nullam dignissim convallis est. Quisque aliquam. Donec faucibus. Nunc iaculis suscipit dui.</p>
-
-        <p><label for="text_field">Text Field:</label>
-          <input type="text" id="text_field"></p>
-
-        <p><label for="text_area">Text Area:</label>
-          <textarea id="text_area"></textarea></p>
-
-        <p><label for="select_element">Select Element:</label>
-          <select name="select_element">
-            <optgroup label="Option Group 1">
-              <option value="1">Option 1</option>
-              <option value="2">Option 2</option>
-              <option value="3">Option 3</option>
-            </optgroup>
-            <optgroup label="Option Group 2">
-              <option value="1">Option 1</option>
-              <option value="2">Option 2</option>
-              <option value="3">Option 3</option>
-            </optgroup>
-        </select></p>
-
-        <p><label for="radio_buttons">Radio Buttons:</label>
-          <label>
-            <input type="radio" class="radio" name="radio_button" value="radio_1"> Radio 1
-          </label>
-          <label>
-            <input type="radio" class="radio" name="radio_button" value="radio_2"> Radio 2
-          </label>
-          <label>
-            <input type="radio" class="radio" name="radio_button" value="radio_3"> Radio 3
-          </label>
-        </p>
-
-        <p><label for="checkboxes">Checkboxes:</label>
-          <label>
-            <input type="checkbox" class="checkbox" name="checkboxes" value="check_1"> Checkbox 1
-          </label>
-          <label>
-            <input type="checkbox" class="checkbox" name="checkboxes" value="check_2"> Checkbox 2
-          </label>
-          <label>
-            <input type="checkbox" class="checkbox" name="checkboxes" value="check_3"> Checkbox 3
-          </label>
-        </p>
-
-        <p><label for="password">Password:</label>
-          <input type="password" class="password" name="password">
-        </p>
-
-        <p><label for="file">File Input:</label>
-          <input type="file" class="file" name="file">
-        </p>
+      </div><!-- /.row our-exc-container -->
 
 
-        <p><input type="submit" value="Submit"></p>
-      </form>
-    </fieldset>
+    </div><!-- /.row -->
 
-    <hr>
+    <div class="row">
 
-    <h1 class="ctitle">Tables</h1>
+      <div class="col-md-6 small-reviews frontpage-small">
+        <h4>Отзывы наших клиентов</h4>
+      </div><!-- /.col-md-6 small-reviews -->
 
-    <table cellspacing="0" cellpadding="0">
-      <tbody>
-        <tr>
-          <th>Table Header 1</th><th>Table Header 2</th><th>Table Header 3</th>
-        </tr>
-        <tr>
-          <td>Division 1</td><td>Division 2</td><td>Division 3</td>
-        </tr>
-        <tr class="even">
-          <td>Division 1</td><td>Division 2</td><td>Division 3</td>
-        </tr>
-        <tr>
-          <td>Division 1</td><td>Division 2</td><td>Division 3</td>
-        </tr>
-      </tbody>
-    </table>
-  </article>
+      <div class="col-md-6 small-partners frontpage-small">
+        <h4>Наши партнеры</h4>
+      </div><!-- /.col-md-6 small-partners -->
+
+      <h6 class="col-md-12 oure-blog-title"><span>Наш блог <a href="<?php echo home_url(); ?>/blog">Все записи</a></span></h6>
+
+      <?php query_posts("showposts=3&cat=1"); ?>
+      <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+        <div class="col-md-4 ourblogitem">
+
+          <a rel="nofollow" class="feature-img" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+            <?php if ( has_post_thumbnail()) :
+              the_post_thumbnail('medium');
+            else: ?>
+              <img src="<?php echo catchFirstImage(); ?>" title="<?php the_title(); ?>" alt="<?php the_title(); ?>" />
+            <?php endif; ?>
+          </a><!-- /post thumbnail -->
+
+          <h3 class="inner-title looper-title">
+            <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
+          </h3><!-- /post title -->
+
+          <span class="date"><?php the_time('j F Y'); ?></span>
+          <?php wpeExcerpt('wpeExcerpt10'); ?>
+        </div><!-- /.col-md-4 ourblogitem -->
+      <?php endwhile; endif; ?>
+      <?php wp_reset_query(); ?>
+
+    </div><!-- /.row -->
+
+
+
+
+  </div><!-- /.container -->
 
 <?php get_footer(); ?>

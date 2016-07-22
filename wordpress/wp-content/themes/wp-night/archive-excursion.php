@@ -5,7 +5,7 @@
 
       <h2 class="col-md-12 cat-title inner-title">Наши экскурсии</h2>
       <div class="col-md-3 cat-exc-cal excursion-cat-zero">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae quos ab adipisci, provident sapiente nisi aperiam quidem fuga sed nobis? Sed, itaque eum repudiandae, neque perferendis repellendus possimus! Perferendis, ipsam.
+        <?php get_template_part('inc-calendar'); ?>
       </div><!-- /.col-md-3 cat-exc-cal -->
       <div class="col-md-9 cat-exc-choos excursion-level-zero">
         <h4>Выберите вид экскурсии</h4>

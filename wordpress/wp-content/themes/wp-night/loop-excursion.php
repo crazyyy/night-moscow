@@ -16,8 +16,9 @@
     <?php wpeExcerpt('wpeExcerpt40'); ?>
     <ul class="exces-dates">
       <?php if( have_rows('timeadndate') ): while ( have_rows('timeadndate') ) : the_row(); ?>
-        <li>
-          <?php $date = get_sub_field('date', false, false); $date = new DateTime($date); echo $date->format('d F Y'); ?>
+        <?php $date = get_sub_field('date', false, false); $date = new DateTime($date); ?>
+        <li class="exces-date" data-exces-year="<?php echo $date->format('Y'); ?>" data-exces-month="<?php echo $date->format('m'); ?>" data-exces-date="<?php echo $date->format('d'); ?>">
+          <?php echo $date->format('d F Y'); ?>
         </li>
       <?php  endwhile; endif; ?>
     </ul><!-- /.exces-dates -->

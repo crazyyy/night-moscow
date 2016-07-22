@@ -20,7 +20,7 @@
   <!-- css + javascript -->
   <?php wp_head(); ?>
 </head>
-<body <?php body_class(); ?>>
+<body <?php body_class(); ?> home-url="<?php echo home_url(); ?>">
 <div class="wrapper">
 
   <?php if ( is_front_page() || is_home() || is_page('24') ){ ?>
@@ -67,7 +67,7 @@
           </div><!-- /.col-md-12 container-title -->
 
           <div class="col-md-3 header-choose header-choose-calendar">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum expedita tempore minus tenetur fugit excepturi modi placeat in odit corrupti totam nemo dolore, quisquam voluptates quae perspiciatis, asperiores, nisi sed!
+            <?php get_template_part('inc-calendar'); ?>
           </div><!-- /.col-md-3 header-choose header-choose-calendar -->
 
           <div class="col-md-6 header-choose header-choose-type">

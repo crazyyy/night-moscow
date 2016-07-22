@@ -21,6 +21,7 @@ if (typeof jQuery == 'undefined') {
   console.log('jQuery has loaded');
 }
 // Place any jQuery/helper plugins in here.
+var homeUrl = $('body').attr('home-url');
 
 /** some heights for blocks  */
 var maxheight = 0;
@@ -87,10 +88,87 @@ $(".popular-posts").each(function() {
 });
 $(".popular-posts").height(maxheight);
 
+var maxheight = 0;
+$(".frontpage-small").each(function() {
+  if ($(this).height() > maxheight) {
+    maxheight = $(this).height();
+  }
+});
+$(".frontpage-small").height(maxheight);
+
+var maxheight = 0;
+$(".ourblogitem").each(function() {
+  if ($(this).height() > maxheight) {
+    maxheight = $(this).height();
+  }
+});
+$(".ourblogitem").height(maxheight);
+
 /** examples block - gallery change photos */
 $(document).ready(function() {
   $('.gallery-choose li').on('click', function() {
     var image = $(this).attr('dataimage');
     $('.gallery-main img').attr('src', image);
   })
+});
+
+/** calendar functional */
+$('.calendar-navi .navi-next').on('click', function() {
+  var $activeContainer = $('.active-month');
+  var currentMonth = $activeContainer.attr('month-id');
+  var currentYear = $activeContainer.attr('year-id');
+  if (currentMonth != 12) {
+    var nextMonth = parseInt(currentMonth, 10) + 1;
+    if (nextMonth < 10) {
+      nextMonth = '0' + nextMonth;
+    }
+    var nextYear = currentYear;
+  } else {
+    var nextMonth = '01';
+    var nextYear = parseInt(currentYear) + 1;
+  }
+  console.log(nextMonth);
+
+  CalendarChange(nextYear, nextMonth);
+})
+
+$('.calendar-navi .navi-back').on('click', function() {
+  var $activeContainer = $('.active-month');
+  var currentMonth = $activeContainer.attr('month-id');
+  var currentYear = $activeContainer.attr('year-id');
+  console.warn(currentMonth);
+  if (currentMonth == '01') {
+    var nextMonth = '12';
+    var nextYear = parseInt(currentYear) - 1;
+  } else {
+
+    var nextMonth = parseInt(currentMonth, 10) - 1;
+    if (nextMonth < 10) {
+      nextMonth = '0' + nextMonth;
+    }
+    var nextYear = currentYear;
+  }
+  CalendarChange(nextYear, nextMonth);
+})
+
+function CalendarChange(nextYear, nextMonth) {
+  var nextYearId = '[year-id="' + nextYear + '"]';
+  var nextMonthId = '[month-id="' + nextMonth + '"]';
+  var nextContainerSelector = '.calendar-container' + nextYearId + nextMonthId;
+
+  var $nextContainer = $(nextContainerSelector);
+  $('.active-month').fadeOut('fast');
+  $('.active-month').removeClass('active-month');
+  $nextContainer.addClass('active-month')
+  $nextContainer.fadeIn('fast');
+}
+
+/** calendar add links */
+$('li.exces-date').each(function(index, el) {
+  var year = $(this).attr('data-exces-year');
+  var month = $(this).attr('data-exces-month');
+  var date = $(this).attr('data-exces-date');
+  var needDateId = '.booking-calendar li[date-id="' + year + month + date + '"]';
+  var needDateDay = $(needDateId).attr('day-id');
+  $(needDateId).html('<a href="' + homeUrl + '/excursion?year=' +  year + '&month=' + month + '&day=' + date + '">' + needDateDay + '</a>');
 });

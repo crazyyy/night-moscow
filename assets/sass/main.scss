@@ -207,6 +207,8 @@ header {
       padding-top: 40px;
       .phone {
         margin-bottom: 20px;
+
+        color: #fff;
       }
     }
   }
@@ -1026,11 +1028,157 @@ article {
   }
   .goto {
     font-weight: 600;
-color: #000;
+
     display: block;
 
     text-align: right;
+
+    color: #000;
   }
+}
+.frontpage-small {
+  margin-bottom: 25px;
+  padding-top: 50px;
+  h4 {
+    font-size: 30px;
+    font-weight: bold;
+
+    margin-bottom: 25px;
+    padding-bottom: 5px;
+
+    border-bottom: 1px solid $gray;
+  }
+}
+.oure-blog-title {
+  font-size: 30px;
+  font-weight: bold;
+
+  margin-bottom: 25px;
+  padding-top: 30px;
+  span {
+    display: block;
+
+    width: 300px;
+    padding-bottom: 5px;
+
+    border-bottom: 1px solid $gray;
+
+    @extend .clearfix;
+    a {
+      font-size: 14px;
+
+      float: right;
+
+      text-decoration: none;
+
+      color: #838383;
+    }
+  }
+}
+.ourblogitem {
+  height: 310px;
+  .feature-img {
+    display: block;
+    overflow: hidden;
+
+    width: 100%;
+    height: 180px;
+    margin-bottom: 20px;
+    img {
+      width: 100%;
+      min-height: 100%;
+    }
+  }
+  .looper-title {
+    font-size: 14px;
+    font-weight: 600;
+
+    margin-bottom: 10px;
+    a {
+      text-decoration: none;
+
+      color: #000;
+    }
+  }
+}
+
+.calendar-block {
+  position: relative;
+  .calendar-container {
+    display: none;
+    .moth-title {
+      font-size: 14px;
+
+      margin-bottom: 10px;
+      padding-left: 10px;
+      span {
+        margin-left: 5px;
+      }
+    }
+    .booking-calendar {
+      display: block;
+
+      @extend .clearfix;
+      li {
+        font-size: 14px;
+
+        display: inline-block;
+        float: left;
+
+        width: 13.28%;
+        margin: 0 .1% 6px;
+        padding: 5px;
+
+        text-align: center;
+        a {
+          cursor: pointer;
+
+          color: $green;
+        }
+      }
+    }
+    .active-day {
+      color: #fff;
+      border-radius: 8px;
+      background-color: $green;
+    }
+    &.active-month {
+      display: block;
+    }
+  }
+  .calendar-navi {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    .navi-back,
+    .navi-next {
+      position: absolute;
+
+      display: block;
+
+      width: 15px;
+      height: 5px;
+      padding: 10px 0;
+
+      cursor: pointer;
+
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    .navi-back {
+      right: 30px;
+
+      background-image: url(../img/ico-calendar-left.png);
+    }
+    .navi-next {
+      right: 0;
+
+      background-image: url(../img/ico-calendar-right.png);
+    }
+  }
+}
+.query-calendar {
+  display: none;
 }
 footer {
   height: $footer;
