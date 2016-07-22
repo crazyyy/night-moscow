@@ -36,6 +36,24 @@
     <?php get_template_part('query-calendar'); ?>
   </div><!-- /.hidden-quered-calendar -->
 
+  <div class="modal-bg modal-recall">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 col-md-offset-8 modal-body">
+          <form action="">
+            <h6>Заказать звонок</h6>
+            <label for="you-name">Как к вам обращаться:</label>
+            <input type="text" name="you-name" id="you-name">
+            <label for="you-phone">Ваш телефон:</label>
+            <input type="text" name="you-phone" id="you-phone">
+            <input type="submit" value="Отправить">
+          </form>
+          <span class="modal-close">x</span>
+        </div><!-- modal-body -->
+      </div>
+    </div>
+  </div><!-- modal-bg modal-recall -->
+
 </footer><!-- /footer -->
 
 <?php wp_footer(); ?>

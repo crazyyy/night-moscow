@@ -88,7 +88,22 @@
             <?php if( have_rows('timeadndate') ): while ( have_rows('timeadndate') ) : the_row(); ?>
               <tr>
                 <td class="ex-date">
-                  <?php $date = get_sub_field('date', false, false); $date = new DateTime($date); echo $date->format('d F Y'); ?>
+                  <?php $date = get_sub_field('date', false, false); $date = new DateTime($date); ?>
+                  <?php
+                    // Russian Months
+                    $ru_months = array( 'Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь' );
+                    // English Months
+                    $en_months = array( 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' );
+                    // Get date string from ACF
+                    $date_arr = explode(" ", get_sub_field('date'));
+                    // Get the month name
+                    $month = $date->format('F');
+                    // Get the array index of the month name
+                    $month_index = array_search($month, $en_months);
+                    // Piece together new date string in Russian translation
+                    $normMonth = $ru_months[$month_index];
+                  ?>
+                  <?php echo $date->format('d'); ?> <?php echo $normMonth;?> <?php echo $date->format('Y'); ?>
                 </td>
                 <td class="ex-time"><?php $format = "H:i"; $timestamp” = get_sub_field('time'); echo date_i18n( $format, $timestamp” ); ?></td>
                 <td><button class="btn btn-order">Записаться на экскурсию</button></td>

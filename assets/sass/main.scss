@@ -21,6 +21,9 @@ body {
   background-color: $base-background-color;
 
   -webkit-font-smoothing: antialiased;
+  &.modaled {
+    overflow: hidden;
+  }
 }
 h1,
 h2,
@@ -518,7 +521,19 @@ article {
     }
   }
 }
+.container-partners-home {
+  span {
+    position: relative;
 
+    display: block;
+
+    width: 100%;
+    height: 80px;
+    img {
+      @extend .align-center;
+    }
+  }
+}
 .breadcrumbs {
   font-size: 12px;
   font-weight: normal;
@@ -1179,6 +1194,64 @@ article {
 }
 .query-calendar {
   display: none;
+}
+.modal-bg {
+  position: fixed;
+  z-index: 5;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  background-color: rgba(0, 0, 0, .3);
+  .modal-body {
+    position: relative;
+
+    padding: 20px 70px;
+
+    background-color: #fff;
+    .modal-close {
+      font-size: 20px;
+
+      position: absolute;
+      top: 10px;
+      right: 10px;
+
+      display: block;
+
+      width: 15px;
+      height: 15px;
+
+      cursor: pointer;
+      text-align: center;
+    }
+    h6 {
+      font-size: 18px;
+      font-weight: bold;
+
+      margin-bottom: 25px;
+
+      color: #000;
+    }
+    label {
+      font-size: 16px;
+
+      margin-bottom: 10px;
+    }
+    input {
+      margin-bottom: 20px;
+      &[type='submit'] {
+        display: block;
+
+        width: 170px;
+        margin: 0 auto;
+      }
+    }
+  }
+  &.modal-recall {
+    display: none;
+    padding-top: 150px;
+  }
 }
 footer {
   height: $footer;

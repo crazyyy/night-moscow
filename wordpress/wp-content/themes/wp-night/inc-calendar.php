@@ -15,28 +15,40 @@
 
       if ( $month === 'January' ) {
         $month_num = '01';
+        $month_rus = 'Январь';
       } else if ( $month === 'February' ) {
         $month_num = '02';
+        $month_rus = 'Февраль';
       } else if ( $month === 'March' ) {
         $month_num = '03';
+        $month_rus = 'Март';
       } else if ( $month === 'April' ) {
         $month_num = '04';
+        $month_rus = 'Апрель';
       } else if ( $month === 'May' ) {
         $month_num = '05';
+        $month_rus = 'Май';
       } else if ( $month === 'June' ) {
         $month_num = '06';
+        $month_rus = 'Июнь';
       } else if ( $month === 'July' ) {
         $month_num = '07';
+        $month_rus = 'Июль';
       } else if ( $month === 'August' ) {
         $month_num = '08';
+        $month_rus = 'Август';
       } else if ( $month === 'September' ) {
         $month_num = '09';
+        $month_rus = 'Сентябрь';
       } else if ( $month === 'October' ) {
         $month_num = '10';
+        $month_rus = 'Октябрь';
       } else if ( $month === 'November' ) {
         $month_num = '11';
+        $month_rus = 'Ноябрь';
       } else if ( $month == 'December' ) {
         $month_num = '12';
+        $month_rus = 'Декабрь';
       }
 
       if ( $month == 'February' ) {
@@ -51,7 +63,7 @@
       } else {
         $calendar_class = '';
       }
-      echo '<div class="calendar-container'. $calendar_class .'" year-id="' . $year .'" month-id="'. $month_num .'"><h6 class="moth-title">'.$month.'<span>'.$year.'</span></h6>';
+      echo '<div class="calendar-container'. $calendar_class .'" year-id="' . $year .'" month-id="'. $month_num .'"><h6 class="moth-title">'.$month_rus.'<span>'.$year.'</span></h6>';
       echo '<ul class="booking-calendar">';
       for ($i=1; $i <= $days; $i++) {
           $day = $i;

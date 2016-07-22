@@ -44,18 +44,35 @@
         <?php endwhile; endif; wp_reset_query(); ?>
 
       </div><!-- /.row our-exc-container -->
-
-
     </div><!-- /.row -->
 
     <div class="row">
-
       <div class="col-md-6 small-reviews frontpage-small">
         <h4>Отзывы наших клиентов</h4>
       </div><!-- /.col-md-6 small-reviews -->
 
       <div class="col-md-6 small-partners frontpage-small">
-        <h4>Наши партнеры</h4>
+
+        <div class="row">
+          <h4 class="col-md-12">Наши партнеры</h4>
+
+          <?php query_posts("page_id=25"); ?>
+          <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+
+            <?php if( have_rows('partners') ): while ( have_rows('partners') ) : the_row();?>
+              <div class="col-md-4 container-partners container-partners-home">
+                <?php $image = get_sub_field('partners_logo'); if( !empty($image) ): ?>
+                  <span class="partners-logo">
+                    <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
+                  </span>
+                <?php endif; ?>
+              </div><!-- /.col-md-4 container-partners -->
+            <?php endwhile; endif; ?>
+
+          <?php endwhile; endif; ?>
+          <?php wp_reset_query(); ?>
+
+        </div>
       </div><!-- /.col-md-6 small-partners -->
 
       <h6 class="col-md-12 oure-blog-title"><span>Наш блог <a href="<?php echo home_url(); ?>/blog">Все записи</a></span></h6>

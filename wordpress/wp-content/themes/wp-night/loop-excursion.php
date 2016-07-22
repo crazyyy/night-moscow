@@ -1,4 +1,5 @@
 <?php if (have_posts()): while (have_posts()) : the_post(); ?>
+  <?php setlocale(LC_ALL, array('ru_RU.UTF8','ru_RU','russian')); ?>
   <?php $terms = get_the_terms( $post->ID, 'categories' ); $term = array_pop($terms); $catId = $term->term_id; $cat_class = 'col-md-6 looper catid_'.$catId; ?>
   <div id="post-<?php the_ID(); ?>" <?php post_class( $cat_class); ?>>
 
@@ -17,8 +18,22 @@
     <ul class="exces-dates">
       <?php if( have_rows('timeadndate') ): while ( have_rows('timeadndate') ) : the_row(); ?>
         <?php $date = get_sub_field('date', false, false); $date = new DateTime($date); ?>
+        <?php
+          // Russian Months
+          $ru_months = array( 'Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь' );
+          // English Months
+          $en_months = array( 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' );
+          // Get date string from ACF
+          $date_arr = explode(" ", get_sub_field('date'));
+          // Get the month name
+          $month = $date->format('F');
+          // Get the array index of the month name
+          $month_index = array_search($month, $en_months);
+          // Piece together new date string in Russian translation
+          $normMonth = $ru_months[$month_index];
+        ?>
         <li class="exces-date" data-exces-year="<?php echo $date->format('Y'); ?>" data-exces-month="<?php echo $date->format('m'); ?>" data-exces-date="<?php echo $date->format('d'); ?>">
-          <?php echo $date->format('d F Y'); ?>
+          <?php echo $date->format('d'); ?> <?php echo $normMonth;?> <?php echo $date->format('Y'); ?>
         </li>
       <?php  endwhile; endif; ?>
     </ul><!-- /.exces-dates -->

@@ -170,5 +170,66 @@ $('li.exces-date').each(function(index, el) {
   var date = $(this).attr('data-exces-date');
   var needDateId = '.booking-calendar li[date-id="' + year + month + date + '"]';
   var needDateDay = $(needDateId).attr('day-id');
-  $(needDateId).html('<a href="' + homeUrl + '/excursion?year=' +  year + '&month=' + month + '&day=' + date + '">' + needDateDay + '</a>');
+  $(needDateId).html('<a data-year="' + year + '" data-month="' + month + '" data-day="' + date + '" href="#">' + needDateDay + '</a>');
 });
+
+/** calendar link works */
+$('.booking-calendar a').on('click', function() {
+  event.preventDefault();
+
+  var searchYear = $(this).attr('data-year');
+  var searchMonth = $(this).attr('data-month');
+  var searchDay = $(this).attr('data-day');
+  var searchedItems = '.hidden-quered-calendar .exces-dates li[data-exces-year="' + searchYear + '"][data-exces-month="' + searchMonth + '"][data-exces-date="' + searchDay + '"]';
+
+  $('.this-excursions').removeClass('this-excursions');
+  $('.our-exc-container').html('');
+
+  $('html, body').animate({
+    scrollTop: $(".our-exc-container").offset().top
+  }, 500);
+
+  $(searchedItems).each(function(index, el) {
+    var $searchedItemsContainer = $(this).parent('.exces-dates').parent('.looper');
+    if (!$searchedItemsContainer.hasClass('this-excursions')) {
+      $searchedItemsContainer.addClass('this-excursions');
+    }
+  });
+
+  $('.hidden-quered-calendar .this-excursions').clone().appendTo(".our-exc-container");
+});
+
+$('.cat-exc-choos a').on('click', function() {
+  var searchTypeSlug = $(this).attr('data-type');
+  var searchTypeClass = '.hidden-quered-calendar .categories-' + searchTypeSlug;
+
+  $('.our-exc-container').html('');
+
+  $('html, body').animate({
+    scrollTop: $(".our-exc-container").offset().top
+  }, 500);
+
+  $(searchTypeClass).clone().appendTo(".our-exc-container");
+
+})
+
+/** modal window */
+$('.btn-recall').on('click', function() {
+  $('body').addClass('modaled');
+  $('.modal-recall').fadeIn('fast');
+})
+
+$('.modal-close').on('click', function() {
+  CloseBg();
+})
+
+$(".modal-bg").click(function() {
+  CloseBg();
+}).children().click(function(e) {
+  return false;
+});
+
+function CloseBg() {
+  $('body').removeClass('modaled');
+  $('.modal-bg').fadeOut('fast');
+}
