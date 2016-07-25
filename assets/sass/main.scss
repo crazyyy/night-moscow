@@ -197,6 +197,7 @@ header {
     background-position: center;
     .container-logo {
       color: #fff;
+      padding-top: 35px;
       a {
         color: #fff;
         &:hover {
@@ -213,6 +214,9 @@ header {
 
         color: #fff;
       }
+    }
+    .container-title {
+      padding-top: 33px;
     }
   }
   .container-title {
@@ -1005,9 +1009,9 @@ article {
           content: '\f183';
         }
       }
-      .exc-type {
-        font-weight: 600;
-      }
+    }
+    &.exc-type {
+      font-weight: 600;
     }
   }
 }
@@ -1169,8 +1173,8 @@ article {
         float: left;
 
         width: 13.28%;
-        margin: 0 .1% 6px;
-        padding: 5px;
+        margin: 0 .1% 4px;
+        padding: 4px;
 
         text-align: center;
         a {
@@ -1184,6 +1188,11 @@ article {
       color: #fff;
       border-radius: 8px;
       background-color: $green;
+    }
+    .current-day {
+      color: $green;
+      border-radius: 8px;
+      background-color: #fff;
     }
     &.active-month {
       display: block;
@@ -1283,8 +1292,9 @@ article {
   }
   &.modal-titleorder,
   &.modal-ourexccontainer {
-    padding-top: 150px;
     display: none;
+
+    padding-top: 150px;
     h6 {
       font-size: 18px;
       font-weight: bold;
@@ -1316,10 +1326,11 @@ article {
           margin-right: 1%;
           margin-left: 0;
         }
-        &[type="submit"] {
+        &[type='submit'] {
+          line-height: 1.2;
+
           width: 60%;
           margin-left: 20%;
-          line-height: 1.2;
           padding-top: 5px;
         }
       }
@@ -1330,9 +1341,6 @@ article {
         height: 120px;
       }
     }
-  }
-  &.modal-ourexccontainer {
-
   }
 }
 .main-content {

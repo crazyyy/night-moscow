@@ -65,6 +65,8 @@
       }
       echo '<div class="calendar-container'. $calendar_class .'" year-id="' . $year .'" month-id="'. $month_num .'"><h6 class="moth-title">'.$month_rus.'<span>'.$year.'</span></h6>';
       echo '<ul class="booking-calendar">';
+      echo '<li>Пн</li><li>Вт</li><li>Ср</li><li>Чт</li><li>Пт</li><li>Сб</li><li>Вс</li>';
+
       for ($i=1; $i <= $days; $i++) {
           $day = $i;
           if ( $day == 0 || $day == 1 || $day == 2 || $day == 3 || $day == 4 || $day == 5 || $day == 6 || $day == 7 || $day == 8 || $day == 9 ) {

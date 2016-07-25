@@ -184,6 +184,8 @@ $('li.exces-date').each(function(index, el) {
 /** calendar link works */
 $('.booking-calendar a').on('click', function() {
   event.preventDefault();
+  $('.current-day').removeClass('current-day');
+  $(this).parent('li').addClass('current-day');
 
   var searchYear = $(this).attr('data-year');
   var searchMonth = $(this).attr('data-month');
@@ -238,7 +240,7 @@ $('.btn-titleorder').on('click', function() {
 })
 
 /** modal window for excurse loope */
-$('.our-exc-container .btn-order').on('click', function() {
+$('.our-exc-container').on('click', '.btn-order', function() {
   var parentContainer = $(this).parent('.exc-order').parent('.excurse-about').parent('.looper');
   parentContainer.addClass('selected-for-order');
   var dateFull = '';
@@ -263,9 +265,8 @@ $('.excursion-price .btn-order').on('click', function() {
     if ($(this).children('td').length > 0) {
       var thisDate = $(this).children('.ex-date').html();
       var thisTime = $(this).children('.ex-time').html();
-      console.log('1')
       if ($(this).hasClass('selected-for-order') == false) {
-        dateFull = dateFull + '<option selected value="' + thisDate + ' в ' + thisTime + '">' + thisDate + ' в ' + thisTime + '</option>';
+        dateFull = dateFull + '<option value="' + thisDate + ' в ' + thisTime + '">' + thisDate + ' в ' + thisTime + '</option>';
       } else {
         dateFull = dateFull + '<option selected value="' + thisDate + ' в ' + thisTime + '">' + thisDate + ' в ' + thisTime + '</option>';
       }
@@ -276,12 +277,8 @@ $('.excursion-price .btn-order').on('click', function() {
   $('body').addClass('modaled');
   $('.modal-ourexccontainer').fadeIn('fast');
   $('.modal-ourexccontainer select').html(dateFull);
-  $('.selected-for-order').removeClass('selected-for-order');
+  // $('.selected-for-order').removeClass('selected-for-order');
 })
-
-
-
-
 
 $('.modal-close').on('click', function() {
   CloseBg();
