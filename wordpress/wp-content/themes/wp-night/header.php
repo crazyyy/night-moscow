@@ -61,8 +61,8 @@
 
         <?php if ( is_front_page() || is_home() || is_page('24') ){ ?>
           <div class="col-md-12 container-title">
-            <h2 class="header-title">Ночная Москва</h2>
-            <h3 class="header-subtitle">18 и 25 июня (сб) в 20:00</h3>
+            <h2 class="header-title"><?php the_field('title')?></h2>
+            <h3 class="header-subtitle"><?php the_field('subtitle')?></h3>
             <a href="#" class="btn btn-green btn-titleorder">Записаться на экскурсию</a>
           </div><!-- /.col-md-12 container-title -->
 

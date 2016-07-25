@@ -26,8 +26,23 @@
             <?php wpeExcerpt('wpeExcerpt40'); ?>
             <ul class="exces-dates">
               <?php if( have_rows('timeadndate') ): while ( have_rows('timeadndate') ) : the_row(); ?>
-                <li>
-                  <?php $date = get_sub_field('date', false, false); $date = new DateTime($date); echo $date->format('d F Y'); ?>
+                <?php $date = get_sub_field('date', false, false); $date = new DateTime($date); ?>
+                <?php
+                  // Russian Months
+                  $ru_months = array( 'Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь' );
+                  // English Months
+                  $en_months = array( 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' );
+                  // Get date string from ACF
+                  $date_arr = explode(" ", get_sub_field('date'));
+                  // Get the month name
+                  $month = $date->format('F');
+                  // Get the array index of the month name
+                  $month_index = array_search($month, $en_months);
+                  // Piece together new date string in Russian translation
+                  $normMonth = $ru_months[$month_index];
+                ?>
+                <li class="exces-date" data-exces-year="<?php echo $date->format('Y'); ?>" data-exces-month="<?php echo $date->format('m'); ?>" data-exces-date="<?php echo $date->format('d'); ?>">
+                  <?php echo $date->format('d'); ?> <?php echo $normMonth;?> <?php echo $date->format('Y'); ?>
                 </li>
               <?php  endwhile; endif; ?>
             </ul><!-- /.exces-dates -->
@@ -48,7 +63,33 @@
 
     <div class="row">
       <div class="col-md-6 small-reviews frontpage-small">
-        <h4>Отзывы наших клиентов</h4>
+      <div class="row">
+        <h4 class="cold-md-12">Отзывы наших клиентов</h4>
+
+        <?php if( have_rows('reviews') ): while ( have_rows('reviews') ) : the_row();?>
+          <?php $date = get_sub_field('date', false, false); $date = new DateTime($date); ?>
+          <?php
+            // Russian Months
+            $ru_months = array( 'Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь' );
+            // English Months
+            $en_months = array( 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' );
+            // Get date string from ACF
+            $date_arr = explode(" ", get_sub_field('date'));
+            // Get the month name
+            $month = $date->format('F');
+            // Get the array index of the month name
+            $month_index = array_search($month, $en_months);
+            // Piece together new date string in Russian translation
+            $normMonth = $ru_months[$month_index];
+          ?>
+          <div class="col-md-6 container-reviews">
+            <h6><?php the_sub_field('name'); ?> <span><?php echo $date->format('d'); ?> <?php echo $normMonth;?> <?php echo $date->format('Y'); ?></span></h6>
+            <?php the_sub_field('review_short'); ?>
+          </div><!-- /.col-md-4 container-reviews -->
+        <?php endwhile; endif; ?>
+
+      </div>
+
       </div><!-- /.col-md-6 small-reviews -->
 
       <div class="col-md-6 small-partners frontpage-small">
@@ -94,10 +135,15 @@
           </h3><!-- /post title -->
 
           <span class="date"><?php the_time('j F Y'); ?></span>
-          <?php wpeExcerpt('wpeExcerpt10'); ?>
+          <a href="<?php the_permalink(); ?>" class="read-full">Читать полностью</a>
+
         </div><!-- /.col-md-4 ourblogitem -->
       <?php endwhile; endif; ?>
       <?php wp_reset_query(); ?>
+
+      <div class="col-md-12 main-content">
+        <?php the_content(); ?>
+      </div><!-- /.col-md-12 main-content -->
 
     </div><!-- /.row -->
 

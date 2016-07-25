@@ -104,6 +104,14 @@ $(".ourblogitem").each(function() {
 });
 $(".ourblogitem").height(maxheight);
 
+var maxheight = 0;
+$(".container-reviews").each(function() {
+  if ($(this).height() > maxheight) {
+    maxheight = $(this).height();
+  }
+});
+$(".container-reviews").height(maxheight);
+
 /** examples block - gallery change photos */
 $(document).ready(function() {
   $('.gallery-choose li').on('click', function() {
@@ -218,6 +226,62 @@ $('.btn-recall').on('click', function() {
   $('body').addClass('modaled');
   $('.modal-recall').fadeIn('fast');
 })
+
+/** modal window for homepage title */
+$('.btn-titleorder').on('click', function() {
+  $('body').addClass('modaled');
+  $('.modal-titleorder').fadeIn('fast');
+  var dateOne = $('.header-title').html();
+  var dateTwo = $('.header-subtitle').html();
+  var dateFull = '<option value="' + dateOne + dateTwo + '">' + dateOne + dateTwo + '</option>';
+  $('.modal-titleorder select').html(dateFull);
+})
+
+/** modal window for excurse loope */
+$('.our-exc-container .btn-order').on('click', function() {
+  var parentContainer = $(this).parent('.exc-order').parent('.excurse-about').parent('.looper');
+  parentContainer.addClass('selected-for-order');
+  var dateFull = '';
+  $('.selected-for-order .exces-date').each(function(index, el) {
+    var thisDate = $(this).html();
+    dateFull = dateFull + '<option value="' + thisDate + '">' + thisDate + '</option>';
+  });
+  $('body').addClass('modaled');
+  $('.modal-ourexccontainer').fadeIn('fast');
+  $('.modal-ourexccontainer select').html(dateFull);
+  $('.selected-for-order').removeClass('selected-for-order');
+})
+
+
+/** modal window for single page loope */
+$('.excursion-price .btn-order').on('click', function() {
+  var parentContainer = $(this).parent('td').parent('tr');
+  parentContainer.addClass('selected-for-order');
+  var dateFull;
+
+  $('.excursion-price tr').each(function(index, el) {
+    if ($(this).children('td').length > 0) {
+      var thisDate = $(this).children('.ex-date').html();
+      var thisTime = $(this).children('.ex-time').html();
+      console.log('1')
+      if ($(this).hasClass('selected-for-order') == false) {
+        dateFull = dateFull + '<option selected value="' + thisDate + ' в ' + thisTime + '">' + thisDate + ' в ' + thisTime + '</option>';
+      } else {
+        dateFull = dateFull + '<option selected value="' + thisDate + ' в ' + thisTime + '">' + thisDate + ' в ' + thisTime + '</option>';
+      }
+    }
+
+  });
+
+  $('body').addClass('modaled');
+  $('.modal-ourexccontainer').fadeIn('fast');
+  $('.modal-ourexccontainer select').html(dateFull);
+  $('.selected-for-order').removeClass('selected-for-order');
+})
+
+
+
+
 
 $('.modal-close').on('click', function() {
   CloseBg();

@@ -1081,6 +1081,8 @@ article {
     @extend .clearfix;
     a {
       font-size: 14px;
+      font-weight: normal;
+      line-height: 2.5;
 
       float: right;
 
@@ -1115,8 +1117,34 @@ article {
       color: #000;
     }
   }
-}
+  .date {
+    font-size: 14px;
+    font-style: italic;
 
+    display: block;
+
+    color: #838383;
+  }
+  .read-full {
+    font-size: 14px;
+    font-weight: 600;
+
+    display: block;
+
+    text-align: right;
+
+    color: #000;
+  }
+}
+.our-exc-titles {
+  font-size: 30px;
+  font-weight: bold;
+
+  margin-bottom: 30px;
+  padding-top: 45px;
+  padding-right: 0;
+  padding-left: 0;
+}
 .calendar-block {
   position: relative;
   .calendar-container {
@@ -1250,7 +1278,92 @@ article {
   }
   &.modal-recall {
     display: none;
+
     padding-top: 150px;
+  }
+  &.modal-titleorder,
+  &.modal-ourexccontainer {
+    padding-top: 150px;
+    display: none;
+    h6 {
+      font-size: 18px;
+      font-weight: bold;
+
+      margin-bottom: 20px;
+
+      text-align: center;
+    }
+    form {
+      display: block;
+
+      width: 100%;
+
+      @extend .clearfix;
+      input,
+      label,
+      textarea,
+      select {
+        float: left;
+
+        width: 100%;
+        height: 30px;
+        margin: 0 0 10px;
+        &.form-half {
+          width: 49%;
+          margin-left: 1%;
+        }
+        &.form-half-first {
+          margin-right: 1%;
+          margin-left: 0;
+        }
+        &[type="submit"] {
+          width: 60%;
+          margin-left: 20%;
+          line-height: 1.2;
+          padding-top: 5px;
+        }
+      }
+      label {
+        line-height: 2;
+      }
+      textarea {
+        height: 120px;
+      }
+    }
+  }
+  &.modal-ourexccontainer {
+
+  }
+}
+.main-content {
+  line-height: 1.4;
+  p {
+    margin-bottom: 18px;
+  }
+}
+.container-reviews {
+  h6 {
+    font-size: 16px;
+    font-weight: normal;
+
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 35px;
+
+    background-image: url(../img/ico-reviews.png);
+    background-repeat: no-repeat;
+    background-position: left center;
+
+    @extend .clearfix;
+    span {
+      font-size: 14px;
+      font-style: italic;
+      line-height: 1.5;
+
+      float: right;
+
+      color: #838383;
+    }
   }
 }
 footer {
