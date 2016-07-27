@@ -55,6 +55,8 @@
         $days = 28;
       } else if ( $month == 'June' || $month == 'September' || $month == 'November' ) {
         $days = 30;
+      } else {
+        $days = 31;
       }
       $stringed_cur_month = strval ($month_num);
       $stringed_month_num = strval ($current_month);
@@ -69,6 +71,15 @@
 
       for ($i=1; $i <= $days; $i++) {
           $day = $i;
+
+          if ($day == 1) {
+            $jd = gregoriantojd($stringed_cur_month,$day,$year);
+            $cleanday = jddayofweek($jd,0);
+            for ($d = 1; $d < $cleanday; $d++) {
+              echo '<li></li>';
+            }
+          }
+
           if ( $day == 0 || $day == 1 || $day == 2 || $day == 3 || $day == 4 || $day == 5 || $day == 6 || $day == 7 || $day == 8 || $day == 9 ) {
             $day ='0'.$i;
           }

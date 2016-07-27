@@ -112,23 +112,22 @@
           </table>
         </div><!-- /.col-md-6 excursion-price -->
 
-        <div class="col-md-6 excursion-map excursion-level-two">
-<?php
-
-$location = get_field('maps');
-
-if( !empty($location) ):
-?>
-<div class="acf-map">
-  <div class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>"></div>
-</div>
-<?php endif; ?>
+        <?php if (get_field('video')) { ?>
+          <div class="col-md-6 excursion-map excursion-level-two">
+        <?php } else { ?>
+          <div class="col-md-12 excursion-map excursion-level-two">
+        <?php } ?>
+          <?php $location = get_field('maps'); if( !empty($location) ): ?>
+          <div class="acf-map">
+            <div class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>"></div>
+          </div>
+          <?php endif; ?>
         </div><!-- /.col-md-6 excursion-map excursion-level-two -->
-
-        <div class="col-md-6 excursion-video excursion-level-two">
-          <iframe width="350" src="https://www.youtube.com/embed/<?php the_field('video'); ?>?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
-        </div><!-- /.col-md-6 excursion-video excursion-level-two -->
-
+        <?php if (get_field('video')) { ?>
+          <div class="col-md-6 excursion-video excursion-level-two">
+            <iframe width="350" src="https://www.youtube.com/embed/<?php the_field('video'); ?>?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+          </div><!-- /.col-md-6 excursion-video excursion-level-two -->
+        <?php } ?>
         <?php setPostViews(get_the_ID());?>
 
         <?php get_template_part('popular'); ?>
