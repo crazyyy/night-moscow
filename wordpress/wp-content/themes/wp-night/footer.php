@@ -117,6 +117,7 @@
 
 </footer><!-- /footer -->
 
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDacqLU9_YxrrJP2PTOWLhqo4ti2tYqiR8"></script>
 <?php wp_footer(); ?>
 
 </body>

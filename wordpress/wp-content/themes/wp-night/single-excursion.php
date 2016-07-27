@@ -113,7 +113,16 @@
         </div><!-- /.col-md-6 excursion-price -->
 
         <div class="col-md-6 excursion-map excursion-level-two">
+<?php
 
+$location = get_field('maps');
+
+if( !empty($location) ):
+?>
+<div class="acf-map">
+  <div class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>"></div>
+</div>
+<?php endif; ?>
         </div><!-- /.col-md-6 excursion-map excursion-level-two -->
 
         <div class="col-md-6 excursion-video excursion-level-two">
