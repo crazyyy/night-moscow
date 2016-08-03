@@ -284,11 +284,11 @@ function html5wp_pagination() {
   ));
 }
 
-// Remove Admin bar
-add_filter('show_admin_bar', 'remove_admin_bar'); // Remove Admin bar
-function remove_admin_bar() {
-  return false;
-}
+// // Remove Admin bar
+// add_filter('show_admin_bar', 'remove_admin_bar'); // Remove Admin bar
+// function remove_admin_bar() {
+//   return false;
+// }
 
 // Remove 'text/css' from our enqueued stylesheet
 add_filter('style_loader_tag', 'html5_style_remove'); // Remove 'text/css' from enqueued stylesheet
@@ -764,7 +764,7 @@ function true_load_posts(){
 	$q = new WP_Query($args);
 	if( $q->have_posts() ):
 		while($q->have_posts()): $q->the_post();
-			
+
 		  $terms = get_the_terms( $post->ID, 'categories' ); $term = array_pop($terms); $catId = $term->term_id; $cat_class = 'col-md-6 looper exsc catid_'.$catId; ?>
           <div id="post-<?php the_ID(); ?>" <?php post_class( $cat_class); ?>>
 
@@ -812,16 +812,16 @@ function true_load_posts(){
             </ul>
 
           </div><!-- /looper -->
-            
-			
+
+
 			<?php
 		endwhile;
 	endif;
 	wp_reset_postdata();
 	die();
 }
- 
- 
+
+
 add_action('wp_ajax_loadmore', 'true_load_posts');
 add_action('wp_ajax_nopriv_loadmore', 'true_load_posts');
 

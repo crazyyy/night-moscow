@@ -47,7 +47,7 @@
 
         <?php if ( is_front_page() || is_home() || is_page('24') ){ ?>
           <div class="col-md-2 col-md-offset-7 container-contacts">
-        <?php } else {  ?>
+        <?php } else { ?>
           <nav class="col-md-7 container-headnav">
             <?php wpeHeadNav(); ?>
           </nav><!-- /.col-md-8 container-headnav -->
@@ -76,7 +76,7 @@
           </div><!-- /.col-md-6 header-choose header-choose-type -->
 
           <div class="col-md-3 header-choose header-choose-foregin">
-            <a href="" class="btn btn-transprent btn-foregin">Экскурсии для иностранцев</a>
+            <a href="<?php echo home_url(); ?>/types/peshehodnaya-s-poseshheniem-obekta" class="btn btn-transprent btn-foregin">Экскурсии для иностранцев</a>
           </div><!-- /.col-md-3 header-choose header-choose-foregin -->
         <?php } ?>
       </div><!-- /.row -->
