@@ -207,6 +207,7 @@ $('.booking-calendar a').on('click', function() {
   });
 
   $('.hidden-quered-calendar .this-excursions').clone().appendTo(".our-exc-container");
+  $('.our-exc-container .looper').css('height', 'auto');
 });
 
 $('.cat-exc-choos a').on('click', function() {
@@ -460,3 +461,47 @@ function CloseBg() {
   });
 
 })(jQuery);
+
+/** ajax load pages  */
+jQuery(function($) {
+
+  var bottomOffset = 2000; // отступ от нижней границы сайта, до которого должен доскроллить пользователь, чтобы подгрузились новые посты
+  var data = {
+    'action': 'loadmore',
+    'query': true_posts,
+    'page': current_page
+  };
+
+  // $(window).scroll(function() {
+  //   if ($(document).scrollTop() > ($(document).height() - bottomOffset) && !$('body').hasClass('loading')) {
+  //     LoadNextPosts(data, true_posts, current_page);
+  //   }
+  // });
+  $('.btn-cat-more').on('click', function() {
+    LoadNextPosts(data, true_posts, current_page);
+  })
+
+  function LoadNextPosts(data, true_posts, current_page) {
+    if (current_page < max_pages) {
+      $.ajax({
+        url: ajaxurl,
+        data: data,
+        type: 'POST',
+        beforeSend: function(xhr) {
+          $('body').addClass('loading');
+        },
+        success: function(data) {
+          if (data) {
+            $('#true_loadmore').before(data);
+            $('body').removeClass('loading');
+            window.current_page++;
+          }
+        }
+      });
+    } else {
+      $('.btn-cat-more').addClass('btn-disabled');
+      $('.btn-cat-more').html('Больше ничего нет;(')
+    }
+  }
+
+});

@@ -24,6 +24,14 @@ body {
   &.modaled {
     overflow: hidden;
   }
+  &.tax-categories {
+    .calendar-block .calendar-navi .navi-back {
+      background-image: url(../img/ico-white-calendar-left.png);
+    }
+    .calendar-block .calendar-navi .navi-next {
+      background-image: url(../img/ico-white-calendar-right.png);
+    }
+  }
 }
 h1,
 h2,
@@ -111,6 +119,27 @@ input {
     text-decoration: none;
     &.btn-green {
       background-color: $green-dark;
+    }
+  }
+  &.btn-cat-more {
+    display: block;
+
+    width: 170px;
+    height: 30px;
+    margin: 0 auto;
+
+    color: #000;
+    outline: none;
+    background-color: #dedede;
+    &:hover {
+      background-color: darken(#dedede, 15%);
+    }
+    &.btn-disabled {
+      width: 210px;
+
+      color: #dedede;
+      border-color: #dedede;
+      background-color: #fff;
     }
   }
 }
@@ -934,6 +963,14 @@ article {
           text-decoration: none;
 
           border-color: $green;
+        }
+      }
+      &:first-child {
+        span {
+          bottom: -40px;
+
+          width: 150px;
+          margin-left: -75px;
         }
       }
     }

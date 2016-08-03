@@ -56,9 +56,19 @@
             </ul>
 
           </div><!-- /looper -->
-
+          
+          
+          
         <?php endwhile; endif; ?>
-        <?php get_template_part('load-post'); ?>
+        
+        <?php if (  $wp_query->max_num_pages > 1 ) : ?>
+        	<script id="true_loadmore">
+            	var ajaxurl = '<?php echo site_url() ?>/wp-admin/admin-ajax.php';
+            	var true_posts = '<?php echo serialize($wp_query->query_vars); ?>';
+            	var current_page = <?php echo (get_query_var('paged')) ? get_query_var('paged') : 1; ?>;
+        	</script>
+        <?php endif; ?>
+        
         <?php wp_reset_query(); ?>
 
       </div><!-- /.row our-exc-container -->
@@ -66,31 +76,33 @@
 
     <div class="row">
       <div class="col-md-6 small-reviews frontpage-small">
-        <div class="row">
-          <h4 class="cold-md-12">Отзывы наших клиентов</h4>
+      <div class="row">
+        <h4 class="cold-md-12">Отзывы наших клиентов</h4>
 
-          <?php if( have_rows('reviews') ): while ( have_rows('reviews') ) : the_row();?>
-            <?php $date = get_sub_field('date', false, false); $date = new DateTime($date); ?>
-            <?php
-              // Russian Months
-              $ru_months = array( 'Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь' );
-              // English Months
-              $en_months = array( 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' );
-              // Get date string from ACF
-              $date_arr = explode(" ", get_sub_field('date'));
-              // Get the month name
-              $month = $date->format('F');
-              // Get the array index of the month name
-              $month_index = array_search($month, $en_months);
-              // Piece together new date string in Russian translation
-              $normMonth = $ru_months[$month_index];
-            ?>
-            <div class="col-md-6 container-reviews">
-              <h6><?php the_sub_field('name'); ?> <span><?php echo $date->format('d'); ?> <?php echo $normMonth;?> <?php echo $date->format('Y'); ?></span></h6>
-              <?php the_sub_field('review_short'); ?>
-            </div><!-- /.col-md-4 container-reviews -->
-          <?php endwhile; endif; ?>
-        </div>
+        <?php if( have_rows('reviews') ): while ( have_rows('reviews') ) : the_row();?>
+          <?php $date = get_sub_field('date', false, false); $date = new DateTime($date); ?>
+          <?php
+            // Russian Months
+            $ru_months = array( 'Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь' );
+            // English Months
+            $en_months = array( 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' );
+            // Get date string from ACF
+            $date_arr = explode(" ", get_sub_field('date'));
+            // Get the month name
+            $month = $date->format('F');
+            // Get the array index of the month name
+            $month_index = array_search($month, $en_months);
+            // Piece together new date string in Russian translation
+            $normMonth = $ru_months[$month_index];
+          ?>
+          <div class="col-md-6 container-reviews">
+            <h6><?php the_sub_field('name'); ?> <span><?php echo $date->format('d'); ?> <?php echo $normMonth;?> <?php echo $date->format('Y'); ?></span></h6>
+            <?php the_sub_field('review_short'); ?>
+          </div><!-- /.col-md-4 container-reviews -->
+        <?php endwhile; endif; ?>
+
+      </div>
+
       </div><!-- /.col-md-6 small-reviews -->
 
       <div class="col-md-6 small-partners frontpage-small">
