@@ -76,7 +76,7 @@
           </div><!-- /.col-md-6 header-choose header-choose-type -->
 
           <div class="col-md-3 header-choose header-choose-foregin">
-            <a href="<?php echo home_url(); ?>/types/peshehodnaya-s-poseshheniem-obekta" class="btn btn-transprent btn-foregin">Экскурсии для иностранцев</a>
+            <a href="<?php echo home_url(); ?>/types/ekskursii-dlya-inostrantsev" class="btn btn-transprent btn-foregin">Экскурсии для иностранцев</a>
           </div><!-- /.col-md-3 header-choose header-choose-foregin -->
         <?php } ?>
       </div><!-- /.row -->

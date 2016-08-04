@@ -17,9 +17,10 @@
                   <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
                 <?php ?>
               </a>
-              <span><?php echo $term->name; ?></span></li>
+              <span><?php echo $term->name; ?></span>
+            </li>
             <?php } ?>
-          <li><a href="#">Экскурсии для иностранцев</a></li>
+          <li><a data-type="ekskursii-dlya-inostrantsev" href="#">Экскурсии для иностранцев</a></li>
         </ul>
       </div><!-- /.col-md-9 cat-exc-choos -->
 

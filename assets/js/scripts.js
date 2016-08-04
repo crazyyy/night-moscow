@@ -223,8 +223,6 @@ $('.cat-exc-choos a').on('click', function() {
   $(searchTypeClass).clone().appendTo(".our-exc-container");
   $('.looper').css('height', 'auto');
   $('.looper').css('min-height', '600px');
-
-
 })
 
 /** modal window */
