@@ -289,7 +289,11 @@ $('.modal-close').on('click', function() {
 $(".modal-bg").click(function() {
   CloseBg();
 }).children().click(function(e) {
-  return false;
+  if (e.target.className == 'wpcf7-form-control wpcf7-submit') {
+    console.warn('form submit')
+  } else {
+    return false;
+  }
 });
 
 function CloseBg() {
@@ -496,6 +500,13 @@ jQuery(function($) {
             $('#true_loadmore').before(data);
             $('body').removeClass('loading');
             window.current_page++;
+            var maxheight = 0;
+            $(".looper").each(function() {
+              if ($(this).height() > maxheight) {
+                maxheight = $(this).height();
+              }
+            });
+            $(".looper").height(maxheight);
           }
         }
       });

@@ -1,0 +1,1 @@
+<h6>Заказать звонок</h6><label for="you-name">Как к вам обращаться:</label>[text you-name id:you-name]<label for="you-phone">Ваш телефон:</label>[text you-phone id:you-phone][submit "Отправить"]

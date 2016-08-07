@@ -876,7 +876,8 @@ article {
     }
   }
 }
-.cat-exc-choos {
+.cat-exc-choos,
+.cat-exc-choos-disabled {
   h4 {
     font-size: 18px;
     font-weight: 600;
@@ -1007,23 +1008,34 @@ article {
   display: block;
 
   margin: 0 0 18px;
-  padding: 10px 25px 0;
+  padding: 10px 10px 0;
 
   background-color: #f7f7f3;
 
   @extend .clearfix;
   li {
+    font-size: 14px;
+
+    display: none;
     float: left;
 
     width: 25%;
     margin-bottom: 10px;
+    padding: 0 5px;
 
     text-align: center;
 
     color: #000;
     border-right: 1px solid $gold;
-    &:last-child {
+    &:last-child,
+    &:nth-child(4) {
       border-right: 0;
+    }
+    &:nth-child(1),
+    &:nth-child(2),
+    &:nth-child(3),
+    &:nth-child(4) {
+      display: inline-block;
     }
   }
 }

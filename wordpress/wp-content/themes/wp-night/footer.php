@@ -40,14 +40,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-4 col-md-offset-8 modal-body">
-          <form action="">
-            <h6>Заказать звонок</h6>
-            <label for="you-name">Как к вам обращаться:</label>
-            <input type="text" name="you-name" id="you-name">
-            <label for="you-phone">Ваш телефон:</label>
-            <input type="text" name="you-phone" id="you-phone">
-            <input type="submit" value="Отправить">
-          </form>
+          <?php echo do_shortcode('[contact-form-7 id="29" title="Call Me Baby"]'); ?>
           <span class="modal-close">x</span>
         </div><!-- modal-body -->
       </div>
@@ -58,26 +51,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-6 col-md-offset-3 modal-body">
-          <form action="">
-            <h6>Записаться на экскурсию</h6>
-            <label for="you-name" class="form-half form-half-first">Имя:</label>
-            <label for="you-secondname" class="form-half">Фамилия:</label>
-            <input type="text" name="you-name" id="you-name" class="form-half form-half-first">
-            <input type="text" name="you-secondname" id="you-secondname" class="form-half">
-            <label for="you-email" class="form-half form-half-first">E-mail:</label>
-            <label for="you-phone" class="form-half">Телефон:</label>
-            <input type="text" name="you-email" id="you-email" class="form-half form-half-first">
-            <input type="text" name="you-phone" id="you-phone" class="form-half">
-            <label for="you-date">Дата экскурсии:</label>
-            <select name="you-date" id="you-date">
-              <option value="1">1</option>
-            </select>
-            <label for="you-quantity">Кол-во человек:</label>
-            <input type="text" name="you-quantity" id="you-quantity" class="form-half form-half-first" value="2">
-            <label for="you-text">Комментарий:</label>
-            <textarea name="you-text" id="you-text" cols="30" rows="10"></textarea>
-            <input type="submit" value="Отправить">
-          </form>
+          <?php echo do_shortcode('[contact-form-7 id="287" title="OrderExcursion"]'); ?>
           <span class="modal-close">x</span>
         </div><!-- modal-body -->
       </div>
@@ -88,26 +62,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-6 col-md-offset-3 modal-body">
-          <form action="">
-            <h6>Записаться на экскурсию</h6>
-            <label for="you-name" class="form-half form-half-first">Имя:</label>
-            <label for="you-secondname" class="form-half">Фамилия:</label>
-            <input type="text" name="you-name" id="you-name" class="form-half form-half-first">
-            <input type="text" name="you-secondname" id="you-secondname" class="form-half">
-            <label for="you-email" class="form-half form-half-first">E-mail:</label>
-            <label for="you-phone" class="form-half">Телефон:</label>
-            <input type="text" name="you-email" id="you-email" class="form-half form-half-first">
-            <input type="text" name="you-phone" id="you-phone" class="form-half">
-            <label for="you-date">Дата экскурсии:</label>
-            <select name="you-date" id="you-date">
-              <option value="1">1</option>
-            </select>
-            <label for="you-quantity">Кол-во человек:</label>
-            <input type="text" name="you-quantity" id="you-quantity" class="form-half form-half-first" value="2">
-            <label for="you-text">Комментарий:</label>
-            <textarea name="you-text" id="you-text" cols="30" rows="10"></textarea>
-            <input type="submit" value="Отправить">
-          </form>
+          <?php echo do_shortcode('[contact-form-7 id="287" title="OrderExcursion"]'); ?>
           <span class="modal-close">x</span>
         </div><!-- modal-body -->
       </div>
