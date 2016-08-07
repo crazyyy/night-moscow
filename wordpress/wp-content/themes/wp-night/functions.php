@@ -34,6 +34,9 @@ function wpeStyles()  {
 
   wp_register_style('wpeasy-style', get_template_directory_uri() . '/css/main.css', array(), '1.0', 'all');
   wp_enqueue_style('wpeasy-style'); // Enqueue it!
+  
+  wp_register_style('wpeasy-style2', get_template_directory_uri() . '/css/next.css', array(), '1.0', 'all');
+  wp_enqueue_style('wpeasy-style2'); // Enqueue it!
 }
 
 

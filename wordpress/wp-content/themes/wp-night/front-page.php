@@ -58,7 +58,10 @@
           </div><!-- /looper -->
 
         <?php endwhile; endif; ?>
-        <?php get_template_part('load-post'); ?>
+        <?php //get_template_part('load-post'); ?>
+        <div class="col-md-12">
+            <a id="link-excurs" href="/excursion" class="btn btn-grey btn-cat-more">Смотреть все экскурсии</a>
+        </div>
         <?php wp_reset_query(); ?>
 
       </div><!-- /.row our-exc-container -->
@@ -135,7 +138,7 @@
             <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
           </h3><!-- /post title -->
 
-          <span class="date"><?php the_time('j F Y'); ?></span>
+          <!--span class="date"><?php the_time('j F Y'); ?></span-->
           <a href="<?php the_permalink(); ?>" class="read-full">Читать полностью</a>
 
         </div><!-- /.col-md-4 ourblogitem -->

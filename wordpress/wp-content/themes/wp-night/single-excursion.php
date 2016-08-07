@@ -76,9 +76,9 @@
           <h6 class="price-title">Стоимость:</h6>
           <ul class="price-list">
             <li>Школьникам<span><?php the_field('price_scool'); ?></span></li>
-            <li>Студенты<span><?php the_field('price_stud'); ?></span></li>
-            <li>Взрослые<span><?php the_field('price_adult'); ?></span></li>
-            <li>Пенсионеры<span><?php the_field('price_price'); ?></span></li>
+            <li>Студентам<span><?php the_field('price_stud'); ?></span></li>
+            <li>Взрослым<span><?php the_field('price_adult'); ?></span></li>
+            <li>Пенсионерам<span><?php the_field('price_price'); ?></span></li>
           </ul>
           <h6 class="price-title">Ближайшие даты экскурсий:</h6>
           <table>

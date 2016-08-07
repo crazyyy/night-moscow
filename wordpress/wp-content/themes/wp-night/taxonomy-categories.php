@@ -27,6 +27,7 @@
       <h1 class="col-md-12 cat-title inner-title">Наши экскурсии</h1>
       <div class="row our-exc-container">
         <?php get_template_part('loop-excursion'); ?>
+        <?php get_template_part('load-post'); ?>
       </div><!-- row our-exc-container -->
 
     </article>

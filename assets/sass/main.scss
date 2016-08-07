@@ -195,6 +195,7 @@ header {
     }
   }
   .container-headnav {
+    margin-top: 20px;
     .headnav {
       position: relative;
 
@@ -209,7 +210,7 @@ header {
 
         text-align: center;
         a {
-          color: #000;
+          color: #fff;
           &:hover {
             text-decoration: none;
 
@@ -270,11 +271,11 @@ header {
       color: #fff;
     }
     .btn-titleorder {
-      margin-bottom: 82px;
+      margin-bottom: 64px;
     }
   }
   .header-choose {
-    height: 200px;
+    height: 217px;
     padding-top: 15px;
     padding-bottom: 15px;
 
@@ -583,6 +584,8 @@ article {
   }
 }
 .looper {
+  min-height: 560px;
+
   @extend .clearfix;
   .feature-img {
     display: block;
@@ -895,6 +898,24 @@ article {
       margin: 0 20px 0 0;
       &:nth-child(7) {
         display: none;
+      }
+      &:nth-child(5) {
+        span {
+          bottom: -40px;
+
+          width: 180px;
+          margin-left: -90px;
+        }
+      }
+      &:nth-child(2),
+      &:nth-child(4),
+      &:nth-child(6) {
+        span {
+          bottom: -40px;
+
+          width: 150px;
+          margin-left: -75px;
+        }
       }
       a {
         display: block;
@@ -1283,6 +1304,12 @@ article {
 .query-calendar {
   display: none;
 }
+#link-excurs {
+  width: 230px;
+
+  text-align: center;
+}
+
 .modal-bg {
   position: fixed;
   z-index: 5;

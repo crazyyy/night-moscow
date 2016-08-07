@@ -45,7 +45,7 @@
           </div><!-- /logo -->
         </div><!-- /.col-md-2 -->
 
-        <?php if ( is_front_page() || is_home() || is_page('24') ){ ?>
+        <?php /*if ( is_front_page() || is_home() || is_page('24') ){ ?>
           <div class="col-md-2 col-md-offset-7 container-contacts">
         <?php } else { ?>
           <nav class="col-md-7 container-headnav">
@@ -53,8 +53,12 @@
           </nav><!-- /.col-md-8 container-headnav -->
 
           <div class="col-md-2 container-contacts">
-        <?php } ?>
+        <?php } */?>
+        <nav class="col-md-7 container-headnav">
+          <?php wpeHeadNav(); ?>
+        </nav><!-- /.col-md-8 container-headnav -->
 
+        <div class="col-md-2 container-contacts">
           <a href="tel:+74955555555" class="phone">+7 (495) 555-55-55</a>
           <a href="#" class="btn btn-green btn-recall">Заказать звонок</a>
         </div><!-- /.col-md-2 col-md-offset-8 container-contacts -->
@@ -92,11 +96,9 @@
 
           <div class="col-md-12">
             <h6>Получить расписание на электронную почту!</h6>
-            <form action="">
               <input type="text" name="name" placeholder="Ваше имя...">
               <input type="text" name="email" placeholder="Ваш e-mail...">
               <button class="btn btn-green btn-subscribe">Подписаться</button>
-            </form>
           </div><!-- /.col-md-12 -->
 
         </div><!-- /.row -->
